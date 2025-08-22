@@ -26,7 +26,6 @@ TextureRenderWidget::TextureRenderWidget(QWidget *parent)
 void
 TextureRenderWidget::initializeGL()
 {
-    initializeOpenGLFunctions();
     loadShaders();
     loadSquare();
     loadTexture();

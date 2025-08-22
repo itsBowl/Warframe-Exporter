@@ -30,14 +30,14 @@
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_2">
-	  <item>
+          <item>
            <widget class="QLineEdit" name="searchLineEdit">
             <property name="placeholderText">
              <string>Search...</string>
-              </property>
-               <property name="clearButtonEnabled">
-                <bool>true</bool>
-              </property>
+            </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
            </widget>
           </item>
           <item>
@@ -221,7 +221,15 @@
               <height>47</height>
              </size>
             </property>
-            <layout class="QHBoxLayout" name="horizontalLayout_5"/>
+            <layout class="QHBoxLayout" name="horizontalLayout_5">
+             <item>
+              <widget class="QPushButton" name="ClearButton">
+               <property name="text">
+                <string>Clear Models</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
          </layout>

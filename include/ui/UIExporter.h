@@ -68,6 +68,8 @@ private:
     void swapToExtractButton();
     void swapToCancelButton();
 
+    void clearModels();
+
 public slots:
     void aboutToClose();
     void itemChanged();

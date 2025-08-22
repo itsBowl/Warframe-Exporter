@@ -10,9 +10,9 @@ class PreviewModel : public Preview
     PreviewModel(const PreviewModel&) = delete;
     const PreviewModel& operator=(const PreviewModel&) = delete;
 
-    ModelRenderWidget* m_modelWidget;
 
 public:
+    ModelRenderWidget* m_modelWidget;
     static PreviewModel* getInstance(); 
 
     void setupUi(QWidget* parentWidget, QVBoxLayout* parentLayout, QWidget* previewButtonsArea, QHBoxLayout* layout) override;

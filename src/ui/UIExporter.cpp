@@ -1,5 +1,7 @@
 #include "ui/UIExporter.h"
 
+#include "ui/preview/PreviewModel.h"
+
 UiExporter::~UiExporter()
 {
     if (m_exporterDirectoryThread.isRunning())
@@ -17,6 +19,8 @@ UiExporter::setup(UiMainWindow *MainWindow)
     connect(this->ExtractButton, &QPushButton::clicked, this, &UiExporter::extractButtonClicked);
     connect(this->tabWidget, &QTabWidget::currentChanged, this, &UiExporter::itemChanged);
     connect(this->searchLineEdit, &QLineEdit::textChanged, this, &UiExporter::onSearchTextChanged);
+    connect(this->ClearButton, &QPushButton::clicked, this, &UiExporter::clearModels);
+    
 
     loadGeometry();
     connect(MainWindow, &UiMainWindow::mainWindowClose, this, &UiExporter::aboutToClose);
@@ -41,6 +45,8 @@ UiExporter::setup(UiMainWindow *MainWindow)
 
     connect(&m_searchTimer, &QTimer::timeout, this, &UiExporter::filterTree);
 
+    //connect(this->ClearButton, &QPushButton::clicked, this, &UiExporter::extractButtonClicked);
+
     m_searchTimer.setSingleShot(true);
 
     m_previewManager.setupUis(this->Preview, this->verticalLayout_3, this->PreviewButtonsArea, this->horizontalLayout_5);
@@ -63,6 +69,12 @@ UiExporter::loadGeometry()
 
     this->splitter->restoreState(settings.getSplitterState());
     this->splitter->restoreGeometry(settings.getSplitterGeometry());
+}
+
+void UiExporter::clearModels()
+{
+    PreviewModel::getInstance()->m_modelWidget->clearModels();
+    
 }
 
 void
